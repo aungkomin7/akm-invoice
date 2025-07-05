@@ -11,7 +11,7 @@ const loadFun = () => {
   app.classList.add("flex","flex-col");
 };
 
-setTimeout(loadFun, 0);
+setTimeout(loadFun, 3000);
 
 const date = new Date();
 copyright.innerText = date.getFullYear();
