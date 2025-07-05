@@ -1,0 +1,23 @@
+{
+  "name": "vite-preline",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.10",
+    "vite": "^7.0.0"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.11",
+    "animate.css": "^4.1.1",
+    "preline": "^3.1.0",
+    "sweetalert2": "^11.22.2",
+    "tailwindcss": "^4.1.11",
+    "uuid": "^11.1.0"
+  }
+}

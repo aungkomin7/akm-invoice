@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body class="dark:bg-gray-950 duration-300 custom-container-light">
+    <div id="loader" class="h-screen flex justify-center items-center">
+      <!-- From Uiverse.io by Nawsome -->
+      <svg class="pl" width="240" height="240" viewBox="0 0 240 240">
+        <circle
+          class="pl__ring pl__ring--a"
+          cx="120"
+          cy="120"
+          r="105"
+          fill="none"
+          stroke="#000"
+          stroke-width="20"
+          stroke-dasharray="0 660"
+          stroke-dashoffset="-330"
+          stroke-linecap="round"
+        ></circle>
+        <circle
+          class="pl__ring pl__ring--b"
+          cx="120"
+          cy="120"
+          r="35"
+          fill="none"
+          stroke="#000"
+          stroke-width="20"
+          stroke-dasharray="0 220"
+          stroke-dashoffset="-110"
+          stroke-linecap="round"
+        ></circle>
+        <circle
+          class="pl__ring pl__ring--c"
+          cx="85"
+          cy="120"
+          r="70"
+          fill="none"
+          stroke="#000"
+          stroke-width="20"
+          stroke-dasharray="0 440"
+          stroke-linecap="round"
+        ></circle>
+        <circle
+          class="pl__ring pl__ring--d"
+          cx="155"
+          cy="120"
+          r="70"
+          fill="none"
+          stroke="#000"
+          stroke-width="20"
+          stroke-dasharray="0 440"
+          stroke-linecap="round"
+        ></circle>
+      </svg>
+    </div>
+    <main class="h-screen hidden" id="app">
+      <header class="mb-10 pt-5">
+        <div class="max-w-5xl mx-auto">
+          <div class="flex items-center justify-between">
+            <div class="flex flex-col gap-0.5">
+              <h1 class="text-3xl dark:text-gray-50 duration-300 animate__animated animate__fadeIn  ">Brands</h1>
+              <p class="text-lg dark:text-blue-500 duration-300 animate__animated animate__fadeIn animate__slow custom-delay-500 ">Invoice app</p>
+            </div>
+            <div class="animate__animated animate__fadeIn custom-delay-1000 print:hidden">
+              <!-- From Uiverse.io by JustCode14 -->
+              <label class="switch">
+                <input checked="true" id="themeSwitch" type="checkbox" />
+                <span class="slider">
+                  <div class="star star_1"></div>
+                  <div class="star star_2"></div>
+                  <div class="star star_3"></div>
+                  <svg viewBox="0 0 16 16" class="cloud_1 cloud">
+                    <path
+                      transform="matrix(.77976 0 0 .78395-299.99-418.63)"
+                      fill="#fff"
+                      d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"
+                    ></path>
+                  </svg>
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="mb-5 animate__animated animate__fadeIn  custom-delay-1500 print:hidden">
+        <div class="max-w-5xl mx-auto">
+          <div
+            class="p-5 dark:bg-gray-400/10 dark:backdrop-blur-sm rounded-xl bg-gray-400/10 backdrop-blur-sm"
+          >
+            <form action="#" id="recordForm">
+              <div class="grid grid-cols-4 gap-3 ">
+                <select
+                  name="record_select"
+                  class="col-span-2 py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                  id="productSelect"
+                  required
+                >
+                  <option selected disabled value="">
+                    Choose your products
+                  </option>
+                </select>
+                <div class="max-w-sm space-y-3">
+                  <input
+                    type="number"
+                    name="record_quantity"
+                    class="py-2.5 sm:py-3 px-4 block w-full border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                    placeholder="Quantity"
+                    required
+                  />
+                </div>
+                <button
+                  type="submit"
+                  class="py-3 px-4 text-sm font-medium rounded-lg border border-transparent bg-teal-500 text-white hover:bg-teal-600 focus:outline-hidden focus:bg-teal-600 disabled:opacity-50 disabled:pointer-events-none"
+                >
+                  Record
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="max-w-5xl mx-auto animate__animated animate__fadeIn custom-delay-2000">
+          <div class="flex flex-col">
+            <div class="-m-1.5 overflow-x-auto">
+              <div class="p-1.5 min-w-full inline-block align-middle">
+                <div class="overflow-hidden">
+                  <table class="min-w-full">
+                    <thead>
+                      <tr>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-500"
+                        >
+                          Name
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase dark:text-neutral-500"
+                        >
+                          Price
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase dark:text-neutral-500"
+                        >
+                          Quantity
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase dark:text-neutral-500"
+                        >
+                          Cost
+                        </th>
+                        <th
+                          scope="col"
+                          class="print:hidden px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase dark:text-neutral-500"
+                        >
+                          Action
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody id="recordGroup"></tbody>
+
+                    <tfoot>
+                      <tr class="">
+                        <td
+                          colspan="3"
+                          class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium text-gray-800 dark:text-neutral-200"
+                        >
+                          Total
+                        </td>
+                        <td
+                          class="px-6 py-4 whitespace-nowrap text-right text-sm text-gray-800 dark:text-neutral-200"
+                          id="recordTotal"
+                        >
+                          0
+                        </td>
+                      </tr>
+                      <tr class="">
+                        <td
+                          colspan="3"
+                          class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium text-gray-800 dark:text-neutral-200"
+                        >
+                          Tax
+                        </td>
+                        <td
+                          class="px-6 py-4 whitespace-nowrap text-right text-sm text-gray-800 dark:text-neutral-200"
+                          id="recordTax"
+                        >
+                          0
+                        </td>
+                      </tr>
+                      <tr class="">
+                        <td
+                          colspan="3"
+                          class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium text-gray-800 dark:text-neutral-200"
+                        >
+                          Net Total
+                        </td>
+                        <td
+                          class="px-6 py-4 whitespace-nowrap text-right text-sm text-gray-800 dark:text-neutral-200"
+                          id="recordNetTotal"
+                        >
+                          0
+                        </td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- sidebar -->
+      <section
+        id="manageInventorySidebar"
+        class="h-screen fixed w-full z-50 bg-gray-400/10 backdrop-blur-sm backdrop-opacity-95 -translate-y-full"
+      >
+        <div class="h-screen flex flex-col pt-5">
+          <div class="">
+            <!-- header -->
+            <div class="max-w-5xl mx-auto mb-10">
+              <div class="flex items-start justify-between">
+                <div class="flex flex-col gap-0.5">
+                  <h1 class="text-3xl dark:text-gray-50 duration-300 ">
+                    Brands
+                  </h1>
+                  <p class="text-lg dark:text-blue-500 duration-300">
+                    Available products
+                  </p>
+                </div>
+                <!-- From Uiverse.io by catraco -->
+                <button
+                  title="Add New"
+                  class="group cursor-pointer hover:rotate-90 duration-300 "
+                  id="closeSidebarBtn"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-9 stroke-gray-800 stroke-2 dark:stroke-gray-100 pointer-events-none duration-300"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6 18 18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="">
+            <div class="max-w-5xl mx-auto">
+              <div class="grid grid-cols-3 gap-3 max-sm:grid-cols-2" id="productGroup"></div>
+            </div>
+          </div>
+
+          <!-- footer -->
+          <div class="mt-auto">
+            <div
+              class="w-full bg:gray-400/10 backdrop-blur-sm backdrop-opacity-75 py-8"
+            >
+              <div class="max-w-5xl mx-auto">
+                <div class="">
+                  <form action="#" id="productForm">
+                    <div class="grid grid-col-3 grid-row-2 gap-3">
+                      <input
+                        type="text"
+                        name="product_name"
+                        class="col-span-3 py-2.5 sm:py-3 px-4 block w-full border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                        placeholder="New product"
+                        required
+                      />
+
+                      <input
+                        type="number"
+                        name="product_price"
+                        class="col-span-2 py-2.5 sm:py-3 px-4 block w-full border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                        placeholder="Price"
+                        required
+                      />
+
+                      <button
+                        type="submit"
+                        class="py-3 px-4 text-sm font-medium rounded-lg border border-transparent bg-teal-500 text-white hover:bg-teal-600 focus:outline-hidden focus:bg-teal-600 disabled:opacity-50 disabled:pointer-events-none"
+                      >
+                        Add
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="mt-auto">
+        <div class="max-w-5xl mx-auto">
+          <div class="flex justify-end gap-2 py-3">
+            <button
+              type="button"
+              class=" print:hidden py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 animate__animated animate__fadeIn  custom-delay-2500"
+              id="manageInventoryBtn"
+            >
+              Manage Inventory
+            </button>
+            <button
+              type="button"
+              class=" print:hidden py-3 px-4 text-sm font-medium rounded-lg border border-transparent bg-teal-500 text-white hover:bg-teal-600 focus:outline-hidden focus:bg-teal-600 disabled:opacity-50 disabled:pointer-events-none animate__animated animate__fadeIn custom-delay-3000"
+              id="printBtn"
+            >
+              Print
+            </button>
+          </div>
+          <p
+            class=" print:hidden font-mono text-sm text-center dark:text-gray-400 duration-300"
+          >
+            &copy; <span id="copyright"></span> AKM. All right reserved.
+          </p>
+          <p class="text-sm text-center dark:text-gray-400 hidden print:block">Thank your for buying our products.</p>
+        </div>
+      </footer>
+      <template id="productTemplate">
+        <div
+          class="product-card hover:-translate-y-1 shadow-2xs duration-300 flex items-center justify-between p-5 border border-gray-500 dark:border-gray-500 rounded-xl animate__animated animate__fadeIn mb-3"
+        >
+          <p class="new-product-name dark:text-gray-100">Apple</p>
+          <p class="dark:text-gray-100">
+            <span class="new-product-price"></span> MMK
+          </p>
+        </div>
+      </template>
+
+      <template id="recordTemplate">
+        <tr
+          class="record-row hover:bg-gray-100 dark:hover:bg-neutral-700 animate__animated animate__fadeIn group"
+        >
+          <td
+            class="record-name px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200"
+          >
+            Apple
+          </td>
+          <td
+            class="record-price px-6 py-4 whitespace-nowrap text-right text-sm text-gray-800 dark:text-neutral-200"
+          >
+            1000
+          </td>
+          <td
+            class="flex justify-end items-center  px-6  py-4 whitespace-nowrap text-right text-sm text-gray-800 dark:text-neutral-200"
+          >
+            <button class="active:scale-95 quantity-decrease-btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-5 pointer-events-none hidden group-hover:block"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 12H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                />
+              </svg>
+            </button>
+            <span class="record-quantity inline-block w-5"></span>
+            <button class="active:scale-95 quantity-increase-btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-5 pointer-events-none hidden group-hover:block"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                />
+              </svg>
+            </button>
+          </td>
+          <td
+            class="record-cost px-6 py-4 whitespace-nowrap text-right text-sm text-gray-800 dark:text-neutral-200"
+          >
+            5000
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
+            <button
+              type="button"
+              class="print:hidden record-row-remove-btn inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-hidden focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:text-blue-400"
+            >
+              Remove
+            </button>
+          </td>
+        </tr>
+      </template>
+    </main>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
